@@ -1,0 +1,14 @@
+C:\Users\Luan.Luan\Dropbox\C#\BT_canhan\Project\Sell_Icream\index\bin\Release\Sell_icream.sdf
+C:\Users\Luan.Luan\Dropbox\C#\BT_canhan\Project\Sell_Icream\index\bin\Release\index.exe.config
+C:\Users\Luan.Luan\Dropbox\C#\BT_canhan\Project\Sell_Icream\index\bin\Release\index.exe
+C:\Users\Luan.Luan\Dropbox\C#\BT_canhan\Project\Sell_Icream\index\bin\Release\index.pdb
+C:\Users\Luan.Luan\Dropbox\C#\BT_canhan\Project\Sell_Icream\index\bin\Release\EntityFramework.dll
+C:\Users\Luan.Luan\Dropbox\C#\BT_canhan\Project\Sell_Icream\index\bin\Release\EntityFramework.xml
+C:\Users\Luan.Luan\Dropbox\C#\BT_canhan\Project\Sell_Icream\index\obj\Release\index.frmLogin.resources
+C:\Users\Luan.Luan\Dropbox\C#\BT_canhan\Project\Sell_Icream\index\obj\Release\index.frmManager.resources
+C:\Users\Luan.Luan\Dropbox\C#\BT_canhan\Project\Sell_Icream\index\obj\Release\index.frmOrderBill.resources
+C:\Users\Luan.Luan\Dropbox\C#\BT_canhan\Project\Sell_Icream\index\obj\Release\index.index.resources
+C:\Users\Luan.Luan\Dropbox\C#\BT_canhan\Project\Sell_Icream\index\obj\Release\index.Properties.Resources.resources
+C:\Users\Luan.Luan\Dropbox\C#\BT_canhan\Project\Sell_Icream\index\obj\Release\index.csproj.GenerateResource.Cache
+C:\Users\Luan.Luan\Dropbox\C#\BT_canhan\Project\Sell_Icream\index\obj\Release\index.exe
+C:\Users\Luan.Luan\Dropbox\C#\BT_canhan\Project\Sell_Icream\index\obj\Release\index.pdb

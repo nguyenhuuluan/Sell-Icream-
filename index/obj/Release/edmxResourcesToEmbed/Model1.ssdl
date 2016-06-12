@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Sell_icreamModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Sell_icreamModelStoreContainer">
+    <EntitySet Name="Bill" EntityType="Sell_icreamModel.Store.Bill" store:Type="Tables" />
+    <EntitySet Name="Bill_Item" EntityType="Sell_icreamModel.Store.Bill_Item" store:Type="Tables" />
+    <EntitySet Name="menu" EntityType="Sell_icreamModel.Store.menu" store:Type="Tables" />
+    <AssociationSet Name="FK_Bill_Item_BIll" Association="Sell_icreamModel.Store.FK_Bill_Item_BIll">
+      <End Role="Bill" EntitySet="Bill" />
+      <End Role="Bill_Item" EntitySet="Bill_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bill_Item_menu" Association="Sell_icreamModel.Store.FK_Bill_Item_menu">
+      <End Role="menu" EntitySet="menu" />
+      <End Role="Bill_Item" EntitySet="Bill_Item" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Bill">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Table" Type="nvarchar" MaxLength="100" />
+    <Property Name="Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Bill_Item">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name=" Bill_id" Type="int" />
+    <Property Name="Item_id" Type="int" />
+    <Property Name="Quality" Type="nvarchar" MaxLength="100" />
+    <Property Name="Price" Type="int" />
+  </EntityType>
+  <EntityType Name="menu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Price" Type="int" />
+  </EntityType>
+  <Association Name="FK_Bill_Item_BIll">
+    <End Role="Bill" Type="Sell_icreamModel.Store.Bill" Multiplicity="0..1" />
+    <End Role="Bill_Item" Type="Sell_icreamModel.Store.Bill_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bill">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Bill_Item">
+        <PropertyRef Name=" Bill_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bill_Item_menu">
+    <End Role="menu" Type="Sell_icreamModel.Store.menu" Multiplicity="0..1" />
+    <End Role="Bill_Item" Type="Sell_icreamModel.Store.Bill_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="menu">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Bill_Item">
+        <PropertyRef Name="Item_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

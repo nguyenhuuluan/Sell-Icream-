@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Sell_icreamModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Sell_icreamEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Bills" EntityType="Sell_icreamModel.Bill" />
+    <EntitySet Name="Bill_Item" EntityType="Sell_icreamModel.Bill_Item" />
+    <EntitySet Name="menus" EntityType="Sell_icreamModel.menu" />
+    <AssociationSet Name="FK_Bill_Item_BIll" Association="Sell_icreamModel.FK_Bill_Item_BIll">
+      <End Role="Bill" EntitySet="Bills" />
+      <End Role="Bill_Item" EntitySet="Bill_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bill_Item_menu" Association="Sell_icreamModel.FK_Bill_Item_menu">
+      <End Role="menu" EntitySet="menus" />
+      <End Role="Bill_Item" EntitySet="Bill_Item" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Bill">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Table" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Bill_Item" Relationship="Sell_icreamModel.FK_Bill_Item_BIll" FromRole="Bill" ToRole="Bill_Item" />
+  </EntityType>
+  <EntityType Name="Bill_Item">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="C_Bill_id" Type="Int32" />
+    <Property Name="Item_id" Type="Int32" />
+    <Property Name="Quality" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Price" Type="Int32" />
+    <NavigationProperty Name="Bill" Relationship="Sell_icreamModel.FK_Bill_Item_BIll" FromRole="Bill_Item" ToRole="Bill" />
+    <NavigationProperty Name="menu" Relationship="Sell_icreamModel.FK_Bill_Item_menu" FromRole="Bill_Item" ToRole="menu" />
+  </EntityType>
+  <EntityType Name="menu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Price" Type="Int32" />
+    <NavigationProperty Name="Bill_Item" Relationship="Sell_icreamModel.FK_Bill_Item_menu" FromRole="menu" ToRole="Bill_Item" />
+  </EntityType>
+  <Association Name="FK_Bill_Item_BIll">
+    <End Role="Bill" Type="Sell_icreamModel.Bill" Multiplicity="0..1" />
+    <End Role="Bill_Item" Type="Sell_icreamModel.Bill_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bill">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Bill_Item">
+        <PropertyRef Name="C_Bill_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bill_Item_menu">
+    <End Role="menu" Type="Sell_icreamModel.menu" Multiplicity="0..1" />
+    <End Role="Bill_Item" Type="Sell_icreamModel.Bill_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="menu">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Bill_Item">
+        <PropertyRef Name="Item_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
